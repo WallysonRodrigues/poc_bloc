@@ -1,15 +1,17 @@
-import 'package:equatable/equatable.dart';
+// import 'package:equatable/equatable.dart';
+
+part of 'cubit.dart';
 
 sealed class AuthState with EquatableMixin {
   @override
   List<Object?> get props => [];
 }
 
-final class AuthInitial extends AuthState {}
+class AuthInitial extends AuthState {}
 
-final class AuthLoadInProgress extends AuthState {}
+class AuthLoadInProgress extends AuthState {}
 
-final class AuthLoadSuccess extends AuthState {
+class AuthLoadSuccess extends AuthState {
   AuthLoadSuccess({required this.response});
 
   final List<Map<String, dynamic>> response;
@@ -18,7 +20,7 @@ final class AuthLoadSuccess extends AuthState {
   List<Object?> get props => [response];
 }
 
-final class AuthLoadFailure extends AuthState {
+class AuthLoadFailure extends AuthState {
   AuthLoadFailure({required this.exception});
 
   final Exception exception;
